@@ -1,0 +1,7 @@
+<%= form_with model: @post do |form| %>
+  <div>
+    <%= form.label :content, "Insert your thoughts..." %>
+    <%= form.text_field :content, value: "foobar" %>
+  </div>
+  <%= form.submit %>
+<% end %>
