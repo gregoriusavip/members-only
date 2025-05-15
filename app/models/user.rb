@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :username, :email, presence: true
   has_many :posts
-  belongs_to :clubhouse
+  belongs_to :clubhouse, optional: true
 end
