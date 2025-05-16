@@ -9,6 +9,16 @@
   </div>
 
   <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :clubhouse_id, "Clubhouse" %><br />
+    <%= f.collection_select :clubhouse_id, Clubhouse.order(:club_name), :id, :club_name, { include_blank: "None" }%>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
