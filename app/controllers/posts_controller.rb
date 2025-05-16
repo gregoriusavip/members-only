@@ -5,18 +5,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(allowed_user_params)
+    @post = Post.new(user_id: current_user.id, content: params[:content])
 
-    if @user.save
-      redirect_to new_post_path
+    if @post.save
+      redirect_to posts_path
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  private
-
-  def allowed_user_params
-    params.expect(post: [ :content, :user_id ])
   end
 end
