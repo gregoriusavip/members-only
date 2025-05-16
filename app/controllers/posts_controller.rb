@@ -15,6 +15,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def index
+    @posts = Post.all
+  end
+
   private
 
   def allowed_user_params
